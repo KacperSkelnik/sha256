@@ -92,16 +92,16 @@ class SHA256():
                 # Rotate the 8 variables
                 a, b, c, d, e, f, g, h = new_a, a, b, c, new_e, e, f, g
 
-        # update h's values
-        h0 = (h0 + a) & 0xFFFFFFFF
-        h1 = (h1 + b) & 0xFFFFFFFF
-        h2 = (h2 + c) & 0xFFFFFFFF
-        h3 = (h3 + d) & 0xFFFFFFFF
-        h4 = (h4 + e) & 0xFFFFFFFF
-        h5 = (h5 + f) & 0xFFFFFFFF
-        h6 = (h6 + g) & 0xFFFFFFFF
-        h7 = (h7 + h) & 0xFFFFFFFF
-        self.h = [h0, h1, h2, h3, h4, h5, h6, h7]
+            # update h's values
+            h0 = (h0 + a) & 0xFFFFFFFF
+            h1 = (h1 + b) & 0xFFFFFFFF
+            h2 = (h2 + c) & 0xFFFFFFFF
+            h3 = (h3 + d) & 0xFFFFFFFF
+            h4 = (h4 + e) & 0xFFFFFFFF
+            h5 = (h5 + f) & 0xFFFFFFFF
+            h6 = (h6 + g) & 0xFFFFFFFF
+            h7 = (h7 + h) & 0xFFFFFFFF
+            self.h = [h0, h1, h2, h3, h4, h5, h6, h7]
 
     def digest(self):
         return sum(self.leftshift(x, 32 * i) for i, x in enumerate(self.h[::-1]))
